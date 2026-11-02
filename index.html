@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>외국인 환자 유치 플로우</title>
+<title>외국인 환자 유치 체크</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Gothic+A1:wght@400;700;900&display=swap" rel="stylesheet">
@@ -15,94 +15,64 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--ink);color:#fff;font:400 17px/1.65 'Gothic A1','Malgun Gothic',sans-serif;word-break:keep-all;overflow-wrap:break-word}
 h1,h2,h3,p,ol,ul{margin:0;padding:0}li{list-style:none}
 :focus-visible{outline:3px solid var(--stop);outline-offset:3px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 40px}
 section{padding:112px 0}
-h2{font-size:clamp(40px,6.4vw,92px);line-height:1.08;font-weight:900;letter-spacing:-.03em;max-width:15em}
-.intro{font-size:clamp(18px,1.7vw,22px);max-width:36em;margin-top:22px}
+h2{font-size:clamp(46px,7.4vw,108px);line-height:1.04;font-weight:900;letter-spacing:-.035em}
+.intro{font-size:clamp(18px,1.7vw,22px);max-width:36em;margin-top:20px}
 .num{font-family:'Barlow Condensed','Gothic A1',sans-serif;font-weight:700}
 
-.hero{background:var(--cobalt);padding:40px 0 64px;min-height:100vh;display:flex;flex-direction:column}
-.hero .wrap{width:100%}
+.hero{background:var(--cobalt);min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:48px 0}
 .draft{font-size:15px;color:var(--soft)}
-h1{font-size:clamp(50px,7.4vw,112px);line-height:1;font-weight:900;letter-spacing:-.045em;margin-top:22px}
-.lede{font-size:clamp(18px,1.8vw,24px);max-width:32em;margin-top:24px}
-#sankey{width:100%;display:block;margin-top:36px}
-#sankey{fill:#fff}
-#sankey text{font-family:'Gothic A1','Malgun Gothic',sans-serif}
-.hero .note{font-size:14px;color:var(--soft);margin-top:12px;max-width:50em}
+.hero h1{font-size:clamp(28px,3.4vw,46px);line-height:1.25;font-weight:900;letter-spacing:-.02em;margin-top:14px}
+.jump{margin-top:32px;border-top:6px solid #fff}
+.jump a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:baseline;padding:20px 0 18px;border-bottom:2px solid var(--line);color:#fff;text-decoration:none}
+.jump b{font-size:clamp(58px,10vw,150px);line-height:1.08;font-weight:900;letter-spacing:-.045em}
+.jump span{font-size:clamp(15px,1.6vw,21px);text-align:right;max-width:14em}
+.jump a:hover b{color:var(--sign)}
 
-.j{background:var(--deep)}
+.imp{background:var(--deep)}
+.imp .list{margin-top:64px;border-top:6px solid var(--sign)}
+.imp .item{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
+.imp h3{font-size:clamp(26px,3.3vw,44px);line-height:1.18;font-weight:900;letter-spacing:-.02em}
+.first{background:var(--stop);color:var(--ink);padding:30px 32px;margin-top:40px}
+.first p:first-child{font-size:clamp(28px,4.2vw,58px);font-weight:900;line-height:1.14;letter-spacing:-.025em}
+.first p+p{font-weight:700;margin-top:10px}
+.mkt{margin-top:88px}
+.mkt h3{font-size:clamp(28px,3.6vw,48px);font-weight:900;letter-spacing:-.02em;line-height:1.2}
+#sankey{width:100%;display:block;margin-top:28px;fill:#fff}
+#sankey text{font-family:'Gothic A1','Malgun Gothic',sans-serif}
+.note{font-size:14px;color:var(--soft);margin-top:12px;max-width:50em}
+
+.do{background:var(--sign);color:var(--ink)}
 .flow{position:relative;margin-top:72px;padding-left:96px}
 .rail,.fill{position:absolute;left:30px;top:0;width:10px;border-radius:5px}
-.rail{bottom:0;background:rgba(255,255,255,.14)}
-.fill{background:var(--sign);height:0}
-.stop{position:relative;padding:0 0 68px}
+.rail{bottom:0;background:rgba(8,16,63,.18)}
+.fill{background:var(--ink);height:0}
+.stop{position:relative;padding:0 0 60px}
 .stop:last-child{padding-bottom:0}
-.stop .dot{position:absolute;left:-96px;top:0;width:70px;height:70px;border-radius:50%;background:var(--deep);border:5px solid rgba(255,255,255,.3);display:grid;place-items:center;font-size:34px;transition:background .25s,color .25s,border-color .25s;color:#fff}
-.stop.on .dot{background:var(--sign);border-color:var(--sign);color:var(--ink)}
+.dot{position:absolute;left:-96px;top:0;width:70px;height:70px;border-radius:50%;background:var(--sign);border:5px solid rgba(8,16,63,.35);display:grid;place-items:center;font-size:34px;transition:background .25s,color .25s,border-color .25s}
+.stop.on .dot{background:var(--ink);border-color:var(--ink);color:var(--sign)}
 .stop h3{font-size:clamp(30px,4.2vw,58px);line-height:1.12;font-weight:900;letter-spacing:-.025em;padding-top:8px}
-.who{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:18px;max-width:900px}
-.who b{display:block;font-size:15px;color:var(--sign);margin-bottom:2px}
-.who .guard b{color:#ff9b87}
-.clinic .dot{border-radius:14px;background:#fff;color:var(--ink);border-color:#fff}
-.stop.clinic.on .dot{background:#fff;border-color:#fff}
-.clinic h3{color:#fff}
-.tag{display:inline-block;background:#fff;color:var(--ink);font-weight:700;font-size:15px;padding:2px 12px;border-radius:4px;margin-top:14px}
+.stop ul{margin-top:14px;max-width:760px}
+.stop li{padding:5px 0 5px 24px;position:relative;font-size:clamp(17px,1.5vw,19px)}
+.stop li::before{content:"";position:absolute;left:0;top:18px;width:13px;height:5px;background:var(--ink)}
+.stop .done{margin-top:12px;font-weight:900}
 
-.money{background:var(--paper);color:var(--ink)}
-.calc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;margin-top:64px;align-items:start}
-.slider{margin-bottom:30px}
-.slider label{display:flex;justify-content:space-between;gap:12px;font-weight:700;align-items:baseline}
-.slider output{font-size:34px;line-height:1}
-input[type=range]{width:100%;height:36px;accent-color:var(--cobalt);margin-top:4px;cursor:pointer}
-.slider small{display:block;font-size:14px;color:#3f4a86}
-.be{font-size:clamp(120px,19vw,270px);line-height:.86;color:var(--cobalt);letter-spacing:-.01em}
-.be-unit{font-size:clamp(22px,2.4vw,32px);font-weight:900;margin-top:10px}
-.be-sub{margin-top:10px;font-size:18px}
-.bar{display:flex;height:64px;margin-top:36px;background:#d7dcf5;border-radius:4px;overflow:hidden}
-.bar i{display:block;background:var(--cobalt)}
-.bar i+i{background:#7c8aea}
-.legend{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:10px;font-size:15px}
-.legend span::before{content:"";display:inline-block;width:12px;height:12px;margin-right:6px;background:var(--c)}
-.assume{font-size:14px;color:#3f4a86;margin-top:24px;max-width:46em}
+.chk{background:var(--paper);color:var(--ink)}
+.head{display:flex;justify-content:space-between;gap:32px;align-items:flex-end;flex-wrap:wrap}
+.count{font-size:clamp(84px,12vw,170px);line-height:.9;color:var(--cobalt)}
+.groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 64px;margin-top:64px}
+.groups h3{font-size:clamp(26px,3vw,38px);font-weight:900;border-top:6px solid var(--ink);padding-top:12px;margin-bottom:6px}
+.groups label{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;padding:13px 0;border-bottom:1px solid #aab3df;cursor:pointer;font-size:18px;line-height:1.45}
+.groups input{width:24px;height:24px;margin:1px 0 0;accent-color:var(--cobalt);cursor:pointer}
+.groups label:has(input:checked) span{color:#4a5383;text-decoration:line-through}
+.reset{all:unset;margin-top:28px;font-weight:700;cursor:pointer;border-bottom:2px solid var(--ink);display:inline-block}
+.reset:focus-visible{outline:3px solid var(--stop);outline-offset:3px}
+.small{font-size:15px;margin-top:10px;color:#3f4a86}
 
-.w{background:var(--cobalt)}
-.w .stop .dot{background:var(--cobalt)}
-.w .stop.on .dot{background:var(--sign)}
-.w .who{grid-template-columns:2fr 1fr}
-
-.gates{background:var(--sign);color:var(--ink)}
-.board{margin-top:56px;border-top:6px solid var(--ink)}
-.gate{display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:24px;align-items:center;padding:20px 0;border-bottom:2px solid var(--ink)}
-.gate .n{font-size:64px;line-height:1}
-.gate p{font-size:clamp(18px,2vw,24px);font-weight:700;line-height:1.35}
-.seg{display:flex;border:2px solid var(--ink);border-radius:6px;overflow:hidden}
-.seg button{all:unset;padding:10px 15px;font-size:15px;font-weight:700;cursor:pointer;min-height:24px;text-align:center}
-.seg button+button{border-left:2px solid var(--ink)}
-.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
-.seg button.no[aria-pressed=true]{background:#b3200a}
-.seg button:focus-visible{outline:3px solid #b3200a;outline-offset:-4px}
-.verdict{margin-top:40px;padding:28px 32px;background:var(--ink);color:#fff;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center}
-.verdict .count{font-size:clamp(68px,9vw,120px);line-height:1;color:var(--sign)}
-.verdict strong{display:block;font-size:clamp(24px,3vw,40px);line-height:1.2;font-weight:900}
-.verdict.fail .count{color:var(--stop)}
-.gates .small{font-size:15px;margin-top:14px}
-.barrier{background:var(--stop);color:var(--ink);padding:44px 0}
-.barrier p{font-size:clamp(28px,4.6vw,64px);font-weight:900;line-height:1.14;letter-spacing:-.025em;max-width:18em}
-.barrier small{display:block;font-size:17px;margin-top:12px;font-weight:700}
-
-.a{background:var(--deep)}
-.decide{background:var(--paper);color:var(--ink)}
-.dlist{margin-top:52px;border-top:6px solid var(--ink)}
-.dlist li{display:grid;grid-template-columns:90px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:2px solid var(--ink);align-items:baseline}
-.dlist .num{font-size:56px;line-height:1;color:var(--cobalt)}
-.dlist p{font-size:clamp(20px,2.4vw,30px);font-weight:700;line-height:1.3}
-.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:72px}
-.roles h3{font-size:26px;font-weight:900;border-top:6px solid var(--cobalt);padding-top:12px}
-.markets{margin-top:72px}
-.market{display:grid;grid-template-columns:150px 200px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
-.market h3{font-size:24px;font-weight:900}
-.mk{background:var(--cobalt)}
+.next{background:var(--cobalt)}
+.next ol{margin-top:52px;border-top:6px solid #fff}
+.next li{padding:20px 0;border-bottom:1px solid var(--line);font-size:clamp(23px,3vw,38px);font-weight:900;line-height:1.25}
 footer{background:var(--ink);padding:56px 0;font-size:15px;color:var(--soft)}
 footer h2{font-size:22px;letter-spacing:0;color:#fff}
 footer ul{margin:12px 0}footer li{margin:5px 0}
@@ -110,165 +80,129 @@ footer a{color:#fff}
 
 @media(max-width:820px){
  .wrap{padding:0 16px}section{padding:72px 0}
- .hero{padding:24px 0 40px;min-height:0}
+ .hero{min-height:0;padding:28px 0 44px}
+ .jump a{grid-template-columns:1fr;gap:2px}.jump span{text-align:left;max-width:none}
+ .imp .item{grid-template-columns:1fr;gap:10px}
+ .first{padding:22px 18px}
  .flow{padding-left:64px;margin-top:48px}
  .rail,.fill{left:20px;width:8px}
- .stop{padding-bottom:52px}
- .stop .dot{left:-64px;width:48px;height:48px;font-size:24px;border-width:4px}
+ .stop{padding-bottom:48px}
+ .dot{left:-64px;width:48px;height:48px;font-size:24px;border-width:4px}
  .stop h3{padding-top:2px}
- .who,.w .who{grid-template-columns:1fr;gap:12px}
- .calc{grid-template-columns:1fr;gap:40px}
- .gate{grid-template-columns:52px minmax(0,1fr);gap:10px 12px}
- .gate .n{font-size:44px}.seg{grid-column:1/-1}.seg button{flex:1}
- .verdict{grid-template-columns:1fr;gap:10px;padding:22px 18px}
- .dlist li{grid-template-columns:44px minmax(0,1fr);gap:12px}.dlist .num{font-size:40px}
- .roles{grid-template-columns:1fr;gap:28px}
- .market{grid-template-columns:1fr;gap:4px}
+ .groups{grid-template-columns:1fr;gap:44px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-@media print{.rail,.fill{display:none}.stop .dot{background:#fff;color:#000}section{padding:32px 0;break-inside:avoid}}
-.next{margin-top:40px;font-size:clamp(20px,2.4vw,30px);font-weight:900}.next a{color:var(--cobalt)}
+@media print{.rail,.fill{display:none}section{padding:32px 0}.reset{display:none}}
 </style>
 </head>
 <body>
 
 <header class="hero">
   <div class="wrap">
-    <p class="draft">검토용 초안, 2026년 11월 2일</p>
-    <h1>전 세계에서<br>서울 피부과까지</h1>
-    <p class="lede">작년 외국인 환자 201만 명 중 가장 굵은 줄은 피부과로 갔습니다. 이 줄에서 한 나라, 병원 2~3곳만 잡고 시작합니다.</p>
-    <svg id="sankey" role="img" aria-label="2025년 외국인 환자 201만 명의 국적과 진료과 비중. 중국 30.8퍼센트, 일본 29.8퍼센트, 대만 9.2퍼센트, 미국 8.6퍼센트. 피부과 62.9퍼센트, 성형외과 11.2퍼센트."></svg>
-    <p class="note">줄 굵기는 실제 비중입니다. 나라별 인원과 진료과 비중은 따로 집계된 수치라, 특정 나라 환자가 특정 진료과로 갔다는 뜻은 아닙니다.</p>
+    <p class="draft">외국인 환자 유치, 기존 법인에 추가하는 경우. 검토용 초안, 2026년 11월 2일</p>
+    <h1>지금 봐야 할 것은 세 가지입니다.</h1>
+    <nav class="jump" aria-label="바로가기">
+      <a href="#important"><b>중요한 것</b><span>이게 안 되면 사업이 안 됩니다</span></a>
+      <a href="#todo"><b>해야 할 것</b><span>이 순서로 진행합니다</span></a>
+      <a href="#check"><b>챙길 것</b><span>놓치면 사고로 이어집니다</span></a>
+    </nav>
   </div>
 </header>
 
-<section class="j">
+<section class="imp" id="important">
   <div class="wrap">
-    <h2>고객은 이렇게 움직입니다</h2>
-    <p class="intro">우리는 처음부터 끝까지 고객 옆에 있고, 진료만 병원이 맡습니다.</p>
+    <h2>중요한 것</h2>
+    <div class="first">
+      <p>등록증이 나오기 전에는 환자를 한 명도 소개하지 않습니다.</p>
+      <p>업종을 추가하는 것만으로는 유치할 수 없습니다. 미등록 유치는 3년 이하 징역 또는 3천만 원 이하 벌금 대상입니다.</p>
+    </div>
+    <div class="list">
+      <div class="item"><h3>고객을 실제로 데려올 경로</h3><p>시장이 크다고 우리 고객이 되지는 않습니다. 첫 나라에서 문의를 만들 채널이나 현지 파트너가 있는지가 가장 먼저입니다.</p></div>
+      <div class="item"><h3>함께할 병원</h3><p>실제로 받아 줄 피부과 2~3곳이 있어야 합니다. 원하는 국적, 수용량, 외국어 응대를 직접 확인합니다.</p></div>
+      <div class="item"><h3>넓히지 않고 한 줄로 시작</h3><p>나라 하나, 서울 피부과 의원 2~3곳으로 시작합니다. 수술, 치과, 입원 진료는 처음엔 제외합니다.</p></div>
+      <div class="item"><h3>광고 규제</h3><p>전후 사진·영상과 환자 체험담은 금지 내용으로 꼽힙니다. 광고 대상과 장소도 제한되어, 일반적인 후기형 마케팅을 그대로 쓸 수 없습니다.</p></div>
+      <div class="item"><h3>소개 대가 구조</h3><p>인플루언서나 현지 파트너에게 환자 수에 따라 대가를 주는 방식은 시작 전에 변호사 확인이 필요합니다.</p></div>
+      <div class="item"><h3>기존 법인에 미치는 영향</h3><p>같은 회사 안에 기존 사업이 있습니다. 기존 계약과 분쟁이 새 사업과 얽히지 않는지, 사고 책임이 기존 사업으로 번지지 않는지 먼저 봅니다.</p></div>
+      <div class="item"><h3>크리에이터 이미지</h3><p>의료 사고나 불만이 크리에이터에게 번질 수 있습니다. 본인 동의 범위 안에서만 쓰고, 없어도 돌아가게 설계합니다.</p></div>
+    </div>
+    <div class="mkt">
+      <h3>가장 굵은 줄은 피부과입니다</h3>
+      <svg id="sankey" role="img" aria-label="2025년 외국인 환자 201만 명의 국적과 진료과 비중. 중국 30.8퍼센트, 일본 29.8퍼센트, 대만 9.2퍼센트, 미국 8.6퍼센트. 피부과 62.9퍼센트, 성형외과 11.2퍼센트."></svg>
+      <p class="note">2025년 기준이며 줄 굵기는 실제 비중입니다. 나라별 인원과 진료과 비중은 따로 집계된 수치라, 특정 나라 환자가 특정 진료과로 갔다는 뜻은 아닙니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="do" id="todo">
+  <div class="wrap">
+    <h2>해야 할 것</h2>
+    <p class="intro">앞 단계가 확인되어야 다음 단계로 넘어갑니다.</p>
     <ol class="flow" data-flow>
       <span class="rail"></span><span class="fill"></span>
-      <li class="stop"><span class="dot num">1</span><h3>현지에서 알게 됩니다</h3>
-        <div class="who"><p><b>우리가 할 일</b>정보형 콘텐츠와 현지 파트너로 첫 접점을 만듭니다.</p><p class="guard"><b>지킬 선</b>전후 사진·영상과 환자 체험담은 쓰지 않습니다.</p></div></li>
-      <li class="stop"><span class="dot num">2</span><h3>문의하고 상담합니다</h3>
-        <div class="who"><p><b>우리가 할 일</b>현지 언어로 원하는 시술, 일정, 예산을 듣습니다.</p><p class="guard"><b>지킬 선</b>결과를 보장하지 않고, 건강 정보는 동의를 받아 다룹니다.</p></div></li>
-      <li class="stop"><span class="dot num">3</span><h3>병원을 정하고 예약합니다</h3>
-        <div class="who"><p><b>우리가 할 일</b>계약한 병원 2~3곳 중 고객에게 맞는 곳을 연결합니다.</p><p class="guard"><b>지킬 선</b>병원의 유치 등록 여부를 먼저 확인합니다.</p></div></li>
-      <li class="stop"><span class="dot num">4</span><h3>서울에 와서 병원까지 갑니다</h3>
-        <div class="who"><p><b>우리가 할 일</b>일정 안내, 통역, 방문 동행을 맡습니다.</p><p class="guard"><b>지킬 선</b>설명과 통역의 범위를 병원과 미리 정합니다.</p></div></li>
-      <li class="stop clinic"><span class="dot num">5</span><h3>병원이 진료합니다</h3>
-        <span class="tag">병원의 영역</span>
-        <div class="who"><p><b>병원이 할 일</b>진단, 치료, 위험과 비용 설명은 병원이 맡습니다.</p><p class="guard"><b>지킬 선</b>우리는 의료 판단을 하지 않습니다.</p></div></li>
-      <li class="stop"><span class="dot num">6</span><h3>돌아간 뒤에도 연락합니다</h3>
-        <div class="who"><p><b>우리가 할 일</b>사후 연락, 불편 접수, 재방문 안내를 맡습니다.</p><p class="guard"><b>지킬 선</b>부작용과 환불 대응은 병원 계약서에 미리 정합니다.</p></div></li>
+      <li class="stop"><span class="dot num">1</span><h3>법인 서류 확인</h3>
+        <ul><li>정관과 등기부의 사업 목적 확인</li><li>대표자 결격 사유 해당 여부 확인</li><li>유치업 등록 요건과 회사 상태 대조</li><li>소재지 시·도 담당 부서에 서류와 사업 목적 문구 문의</li></ul></li>
+      <li class="stop"><span class="dot num">2</span><h3>변호사 확인</h3>
+        <ul><li>기존 법인에 추가해도 괜찮은지</li><li>기존 계약, 분쟁과 충돌하는지</li><li>광고 방식과 소개 대가 구조가 괜찮은지</li><li>등록 전에 대기 명단을 받아도 되는지</li></ul></li>
+      <li class="stop"><span class="dot num">3</span><h3>첫 나라 결정</h3>
+        <ul><li>채널의 실제 국가별 비율 확인</li><li>기존 지역 전속 계약 여부 확인</li><li>미국·캐나다, 대만, 중국 중 경로가 있는 곳 선택</li></ul></li>
+      <li class="stop"><span class="dot num">4</span><h3>피부과 5곳 만나기</h3>
+        <ul><li>유치 등록 여부, 원하는 국적, 수용량, 외국어 응대 확인</li><li>함께할 의향이 있는 2~3곳 추리기</li></ul></li>
+      <li class="stop"><span class="dot num">5</span><h3>유치업 추가</h3>
+        <ul><li>주주총회 특별결의로 사업 목적 추가</li><li>결의 후 2주 안에 변경등기 신청</li><li>홈택스에서 사업자등록 업종 추가</li></ul></li>
+      <li class="stop"><span class="dot num">6</span><h3>유치업 등록</h3>
+        <ul><li>외국인환자유치 정보시스템에 신청서와 서류 제출</li><li>서울 기준 접수 후 20일(공휴일 제외)</li><li>등록증 발급 확인 전에는 유치 시작 금지</li></ul></li>
+      <li class="stop"><span class="dot num">7</span><h3>병원 계약과 운영 준비</h3>
+        <ul><li>병원과 정산, 사고, 환불, 노쇼 대응을 계약서에 명시</li><li>상담, 통역, 동행 인력과 응답 기준 마련</li><li>문의부터 사후 연락까지 기록할 곳 마련</li></ul></li>
+      <li class="stop"><span class="dot num">8</span><h3>첫 고객 10~20명</h3>
+        <ul><li>문의 경로, 불만, 재방문을 기록</li><li>실제 기록으로 확장, 수정, 중단 결정</li></ul></li>
     </ol>
   </div>
 </section>
 
-<section class="money">
+<section class="chk" id="check">
   <div class="wrap">
-    <h2>몇 명이 와야 남을까요</h2>
-    <p class="intro">돈은 병원이 주는 수수료에서 나옵니다. 값을 움직이면 손익분기 환자 수가 바로 바뀝니다.</p>
-    <div class="calc">
-      <form id="calc" onsubmit="return false">
-        <div class="slider"><label for="price">환자 1명 진료비 <output class="num" id="o-price"></output></label><input id="price" type="range" min="30" max="300" step="10" value="100"></div>
-        <div class="slider"><label for="rate">병원 수수료 <output class="num" id="o-rate"></output></label><input id="rate" type="range" min="5" max="30" step="1" value="20"><small>의원 상한 30%, 병원·종합병원 20%, 상급종합병원 15%</small></div>
-        <div class="slider"><label for="cac">환자 1명 데려오는 비용 <output class="num" id="o-cac"></output></label><input id="cac" type="range" min="0" max="50" step="1" value="10"></div>
-        <div class="slider"><label for="fixed">월 고정비 <output class="num" id="o-fixed"></output></label><input id="fixed" type="range" min="100" max="2000" step="50" value="300"></div>
-      </form>
-      <div aria-live="polite">
-        <div class="be num" id="be"></div>
-        <p class="be-unit" id="be-unit"></p>
-        <p class="be-sub" id="be-sub"></p>
-        <div class="bar" aria-hidden="true"><i id="b-net"></i><i id="b-cac"></i></div>
-        <div class="legend"><span style="--c:#1228c8">우리에게 남는 돈</span><span style="--c:#7c8aea">고객 획득비</span><span style="--c:#d7dcf5">병원 몫</span></div>
-        <p class="assume">전부 가정값입니다. 실제 수수료와 진료비는 2주차 병원 인터뷰로, 획득비는 첫 운영 숫자로 바꿉니다. 참고로 2025년 의료 지출 추정치를 환자 수로 나눈 단순 평균은 약 164만 원이고, 피부과 위주면 더 낮을 수 있습니다.</p>
+    <div class="head"><h2>챙길 것</h2><div class="count num" id="count" aria-live="polite"></div></div>
+    <p class="intro">확인한 항목을 눌러 표시하세요.</p>
+    <div class="groups" id="groups">
+      <div><h3>등록과 법</h3>
+        <label><input type="checkbox"><span>등록은 3년마다 갱신, 만료 전 6개월 이내 신청</span></label>
+        <label><input type="checkbox"><span>매년 전년도 유치 실적 보고, 현행 기한 확인</span></label>
+        <label><input type="checkbox"><span>거래하는 병원의 유치 등록 여부 확인</span></label>
+        <label><input type="checkbox"><span>병원 수수료는 고시 상한 안에서, 불투명한 리베이트 금지</span></label>
+      </div>
+      <div><h3>광고와 콘텐츠</h3>
+        <label><input type="checkbox"><span>전후 사진·영상, 환자 체험담 금지</span></label>
+        <label><input type="checkbox"><span>객관적 근거 없는 치료 보장 표현 금지</span></label>
+        <label><input type="checkbox"><span>광고 대상과 게시 장소가 허용 범위인지 확인</span></label>
+        <label><input type="checkbox"><span>사전 심의가 필요한 매체인지 확인</span></label>
+      </div>
+      <div><h3>계약과 권리</h3>
+        <label><input type="checkbox"><span>기존 전속·독점 계약과 충돌 여부 확인</span></label>
+        <label><input type="checkbox"><span>크리에이터 참여 범위를 본인 동의로 문서화</span></label>
+        <label><input type="checkbox"><span>파트너별 소개 대가 지급 방식 변호사 확인</span></label>
+        <label><input type="checkbox"><span>병원별 계약에 정산일, 사고, 환불, 노쇼 대응 명시</span></label>
+      </div>
+      <div><h3>고객과 사고</h3>
+        <label><input type="checkbox"><span>건강 정보 수집 동의, 보관 방법, 해외 이전 규정 확인</span></label>
+        <label><input type="checkbox"><span>진단과 시술 추천 금지, 의료 판단은 병원이 담당</span></label>
+        <label><input type="checkbox"><span>통역 범위와 동의서 절차를 병원과 사전 합의</span></label>
+        <label><input type="checkbox"><span>부작용과 불만 발생 시 연락 담당과 순서 지정</span></label>
       </div>
     </div>
+    <button class="reset" id="reset" type="button">표시 모두 지우기</button>
+    <p class="small">표시한 내용은 이 브라우저에만 저장됩니다.</p>
   </div>
 </section>
 
-<section class="w">
+<section class="next">
   <div class="wrap">
-    <h2>먼저 4주만 검증합니다</h2>
-    <p class="intro">자본금을 넣기 전에 확인할 수 있는 것부터 확인합니다.</p>
-    <ol class="flow" data-flow>
-      <span class="rail"></span><span class="fill"></span>
-      <li class="stop"><span class="dot num">1</span><h3>나라 후보와 법률 질문</h3>
-        <div class="who"><p>크리에이터 채널 국가 비율 확인, 기존 계약 점검, 병원·파트너 인맥 정리, 변호사 상담</p><p><b>담당</b>대표, 사업 총괄</p></div></li>
-      <li class="stop"><span class="dot num">2</span><h3>피부과 5곳 인터뷰</h3>
-        <div class="who"><p>실제 수수료, 원하는 국적, 수용량, 외국어 응대를 물어 병원 조건 비교표를 만듭니다.</p><p><b>담당</b>사업 총괄, 대표</p></div></li>
-      <li class="stop"><span class="dot num">3</span><h3>경쟁 조사와 고객 경로 시험</h3>
-        <div class="who"><p>경쟁 업체 10곳을 조사합니다. 대기 명단은 변호사 확인 후에만 받습니다.</p><p><b>담당</b>사업 총괄</p></div></li>
-      <li class="stop"><span class="dot num">4</span><h3>실제 숫자로 다시 계산</h3>
-        <div class="who"><p>인터뷰 숫자를 넣어 수익을 다시 계산하고, 아래 다섯 관문으로 판단합니다.</p><p><b>담당</b>함께</p></div></li>
+    <h2>다음에 확인할 세 가지</h2>
+    <ol>
+      <li>첫 나라의 고객을 어떤 경로로 데려올 수 있나요?</li>
+      <li>바로 연결할 수 있는 병원이 있나요?</li>
+      <li>크리에이터는 어디까지 참여하나요?</li>
     </ol>
   </div>
-</section>
-
-<section class="gates">
-  <div class="wrap">
-    <h2>다섯 관문을 모두 통과해야 등록합니다</h2>
-    <p class="intro">회의에서 함께 눌러 보세요. 지금은 모두 미확인입니다.</p>
-    <div class="board" id="board"></div>
-    <div class="verdict" id="verdict" aria-live="polite"><div class="count num" id="count"></div><div><strong id="v-title"></strong><p id="v-text"></p></div></div>
-    <p class="small">관문은 판단을 위해 제안한 기준이며 함께 조정할 수 있습니다. 누른 값은 이 브라우저에만 저장됩니다.</p>
-  </div>
-</section>
-
-<div class="barrier">
-  <div class="wrap">
-    <p>등록증이 나오기 전에는 환자를 한 명도 소개하지 않습니다.
-    <small>미등록 유치는 3년 이하 징역 또는 3천만 원 이하 벌금 대상입니다.</small></p>
-  </div>
-</div>
-
-<section class="a">
-  <div class="wrap">
-    <h2>통과하면 90일 안에 첫 고객까지</h2>
-    <ol class="flow" data-flow>
-      <span class="rail"></span><span class="fill"></span>
-      <li class="stop"><span class="dot num">1</span><h3>등록</h3>
-        <div class="who"><p>사업자, 자본금 1억 원 이상, 보증보험, 국내 사무소를 갖춰 신청합니다.</p><p><b>서울 기준</b>접수 후 20일(공휴일 제외)</p></div></li>
-      <li class="stop"><span class="dot num">2</span><h3>병원 계약</h3>
-        <div class="who"><p>병원 2~3곳과 수수료, 정산, 사고 대응을 정해 계약합니다.</p><p><b>시작</b>등록증 발급 후</p></div></li>
-      <li class="stop"><span class="dot num">3</span><h3>첫 고객 10~20명</h3>
-        <div class="who"><p>실제 획득비, 진료비, 불만, 재방문을 기록합니다.</p><p><b>목표</b>가정값을 실제 값으로 교체</p></div></li>
-      <li class="stop"><span class="dot num">4</span><h3>확장, 수정, 중단 중 결정</h3>
-        <div class="who"><p>첫 운영의 실제 숫자로 다음 단계를 정합니다.</p><p><b>담당</b>함께</p></div></li>
-    </ol>
-  </div>
-</section>
-
-<section class="mk">
-  <div class="wrap">
-    <h2>첫 나라는 데이터로 정합니다</h2>
-    <p class="intro">시장 크기만으로 고르지 않습니다. 고객을 실제로 데려올 수 있는 나라부터 시작합니다.</p>
-    <div class="markets">
-      <div class="market"><h3>미국·캐나다</h3><p class="num" style="font-size:30px;line-height:1.1">17.3만 + 2.4만</p><p>전년 대비 각각 70.4%, 59.1% 증가. 크리에이터 콘텐츠가 영어 중심입니다. 다만 팔로워 국적은 다를 수 있어 실제 북미 비율을 먼저 봅니다.</p></div>
-      <div class="market"><h3>대만</h3><p class="num" style="font-size:30px;line-height:1.1">18.6만</p><p>초기 해외 전략이 대만 우선이었습니다. 번체권 팔로워 비율과 현지 파트너 유무를 확인합니다.</p></div>
-      <div class="market"><h3>중국</h3><p class="num" style="font-size:30px;line-height:1.1">61.9만</p><p>가장 큰 시장이지만 경쟁과 플랫폼 제약이 큽니다. 기존 중화권 계약을 확인하기 전까지 보류합니다.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="decide">
-  <div class="wrap">
-    <h2>이번 주에 정할 다섯 가지</h2>
-    <ol class="dlist">
-      <li><span class="num">1</span><p>어느 회사 이름으로 할까요? 새 법인, 또는 기존 법인</p></li>
-      <li><span class="num">2</span><p>자본금 1억 원과 운영비는 누가 어떻게 낼까요?</p></li>
-      <li><span class="num">3</span><p>연결할 수 있는 병원과 현지 파트너가 있나요?</p></li>
-      <li><span class="num">4</span><p>크리에이터는 어디까지 참여할까요? 얼굴, 채널, 또는 불참</p></li>
-      <li><span class="num">5</span><p>역할과 지분을 한 장으로 합의하고 시작할까요?</p></li>
-    </ol>
-    <div class="roles">
-      <div><h3>대표</h3><p>자금과 최종 결정, 크리에이터 쪽 조율, 보유한 병원 인맥 연결</p></div>
-      <div><h3>사업 총괄</h3><p>사업 계획, 병원 영업과 계약 실무, 마케팅과 광고, 상담·운영 시스템</p></div>
-      <div><h3>크리에이터</h3><p>본인이 동의한 범위에서만 참여. 크리에이터 없이도 돌아가는 구조로 설계</p></div>
-    </div>
-    <p class="next"><a href="contribution.html">사업 총괄이 맡을 일 자세히 보기</a></p>
-    </div>
 </section>
 
 <footer>
@@ -276,84 +210,54 @@ footer a{color:#fff}
     <h2>출처와 확인 상태</h2>
     <ul>
       <li><a href="https://www.heraldk.com/article/2026042315314853513">헤럴드경제: 2025년 외국인 환자 통계</a></li>
-      <li><a href="https://eiec.kdi.re.kr/policy/materialView.do?num=280079">복지부 보도자료 게시본: 2025년 의료 지출 추정치</a></li>
-      <li><a href="https://medicaltimes.com/Mobile/News/NewsView.html?ID=1168653">메디칼타임즈: 등록 요건, 수수료 상한, 광고 제한(2026-05-11)</a></li>
-      <li><a href="https://www.incheon.go.kr/health/HE010402">인천시: 법 제6조, 제28조</a></li>
+      <li><a href="https://medicaltimes.com/Mobile/News/NewsView.html?ID=1168653">메디칼타임즈: 등록 요건, 광고 제한(2026-05-11)</a></li>
+      <li><a href="https://www.incheon.go.kr/health/HE010402">인천시: 법 제6조, 제28조, 유효기간</a></li>
       <li><a href="https://news.seoul.go.kr/welfare/?p=531323">서울시: 등록 절차(2026-03-13 수정)</a></li>
+      <li><a href="https://www.help-me.kr/blog/article/corporate-objective-addition-guide/">헬프미: 사업 목적 추가 절차(민간 안내)</a></li>
     </ul>
-    <p>법령 해석은 변호사 확인 전입니다. 수수료 상한과 보증보험 기준은 현행 원문을 다시 확인해야 합니다. 내부 채널과 계약 내용은 별도로 최신 상태를 확인해야 합니다. 진행 순서와 관문, 계산의 가정은 제안값입니다.</p>
+    <p>법령 해석은 변호사 확인 전입니다. 진행 순서와 시작 범위는 제안이며, 현행 법령과 담당 부서 안내를 다시 확인해야 합니다.</p>
   </div>
 </footer>
 
 <script>
 (function(){
-  /* 첫 화면 흐름도: 줄 굵기는 실제 비중 */
   var L=[["중국",30.8,"61.9만 명"],["일본",29.8,"60.0만 명"],["대만",9.2,"18.6만 명"],["미국",8.6,"17.3만 명"],["그 외",21.6,"43.4만 명"]];
   var R=[["피부과",62.9],["성형외과",11.2],["내과통합",9.2],["검진센터",3.1],["그 외",13.6]];
-  var NS="http://www.w3.org/2000/svg",svg=document.getElementById("sankey"),drawn=false;
+  var NS="http://www.w3.org/2000/svg",svg=document.getElementById("sankey");
   function el(n,a,t){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;return e}
-  function stack(items,T,gap,H){var tot=items.length-1,y=(H-T-gap*tot)/2;return items.map(function(d){var h=d[1]/100*T,o={d:d,y:y,h:h};y+=h+gap;return o})}
+  function stack(items,T,gap,H){var y=(H-T-gap*(items.length-1))/2;return items.map(function(d){var h=d[1]/100*T,o={d:d,y:y,h:h};y+=h+gap;return o})}
   function draw(){
-    var W=svg.parentNode.clientWidth,phone=W<700,H=phone?560:Math.max(470,Math.min(innerHeight-420,640));
+    var W=svg.parentNode.clientWidth,phone=W<700,H=phone?560:560;
     var T=H*(phone?.62:.6),gap=phone?24:32,lm=phone?70:150,rm=phone?92:230;
-    var cw=phone?54:150,cx=lm+(W-lm-rm-cw)/2,cy=(H-T)/2,fs=phone?13:17,big=phone?20:30;
+    var cw=phone?54:150,cx=lm+(W-lm-rm-cw)/2,cy=(H-T)/2,fs=phone?13:17;
     svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.setAttribute("height",H);svg.textContent="";
     var g=el("g",{});
     function band(x0,y0,x1,y1,h,f,o){var m=(x0+x1)/2;g.appendChild(el("path",{d:"M"+x0+" "+y0+"C"+m+" "+y0+" "+m+" "+y1+" "+x1+" "+y1+"L"+x1+" "+(y1+h)+"C"+m+" "+(y1+h)+" "+m+" "+(y0+h)+" "+x0+" "+(y0+h)+"Z",fill:f,"fill-opacity":o}))}
     var yy=cy;
     stack(L,T,gap,H).forEach(function(n,i){band(lm,n.y,cx,yy,n.h,"#fff",i==4?.22:.46);g.appendChild(el("rect",{x:lm-8,y:n.y,width:8,height:n.h,fill:"#fff"}));yy+=n.h;
-      var c=n.y+n.h/2,t=el("text",{x:0,y:c-1,"font-size":phone?16:24,"font-weight":900},n.d[0]);svg.appendChild(t);svg.appendChild(el("text",{x:0,y:c+(phone?15:21),"font-size":fs-1,fill:"#c9d2ff"},phone?n.d[1]+"%":n.d[2]+", "+n.d[1]+"%"))});
+      var c=n.y+n.h/2;svg.appendChild(el("text",{x:0,y:c-1,"font-size":phone?16:24,"font-weight":900},n.d[0]));svg.appendChild(el("text",{x:0,y:c+(phone?15:21),"font-size":fs-1,fill:"#c9d2ff"},phone?n.d[1]+"%":n.d[2]+", "+n.d[1]+"%"))});
     yy=cy;
     stack(R,T,gap,H).forEach(function(n,i){var hot=i==0;band(cx+cw,yy,W-rm,n.y,n.h,hot?"#ffd000":"#fff",hot?1:(i==4?.2:.4));g.appendChild(el("rect",{x:W-rm,y:n.y,width:8,height:n.h,fill:hot?"#ffd000":"#fff"}));yy+=n.h;
       var c=n.y+n.h/2,x=W-rm+(phone?14:22);
       if(hot){svg.appendChild(el("text",{x:x,y:c-(phone?2:6),"font-size":phone?19:34,"font-weight":900,fill:"#ffd000"},n.d[0]));svg.appendChild(el("text",{x:x,y:c+(phone?22:38),"font-size":phone?30:56,"font-weight":700,fill:"#ffd000",style:"font-family:'Barlow Condensed','Gothic A1',sans-serif"},n.d[1]+"%"))}
       else{svg.appendChild(el("text",{x:x,y:c+5,"font-size":phone?12:18,"font-weight":700},phone?n.d[0]:n.d[0]+" "+n.d[1]+"%"))}});
     g.appendChild(el("rect",{x:cx,y:cy,width:cw,height:T,fill:"#ffd000"}));
-    if(phone){var v=el("text",{x:cx+cw/2,y:H/2,"text-anchor":"middle","font-size":big,"font-weight":900,fill:"#08103f",transform:"rotate(-90 "+(cx+cw/2)+" "+(H/2)+")"},"201만 명");v.style.setProperty("fill","#08103f");v.setAttribute("dominant-baseline","middle");g.appendChild(v)}
+    if(phone){var v=el("text",{x:cx+cw/2,y:H/2,"text-anchor":"middle","font-size":20,"font-weight":900,transform:"rotate(-90 "+(cx+cw/2)+" "+(H/2)+")"},"201만 명");v.style.fill="#08103f";v.setAttribute("dominant-baseline","middle");g.appendChild(v)}
     else{var a=el("text",{x:cx+cw/2,y:H/2+6,"text-anchor":"middle","font-size":58,"font-weight":700},"201만");a.style.cssText="fill:#08103f;font-family:'Barlow Condensed','Gothic A1',sans-serif";g.appendChild(a);var b=el("text",{x:cx+cw/2,y:H/2+34,"text-anchor":"middle","font-size":16,"font-weight":700},"2025년 외국인 환자");b.style.fill="#08103f";g.appendChild(b)}
-    if(!drawn&&!matchMedia("(prefers-reduced-motion: reduce)").matches){
-      var cp=el("clipPath",{id:"rv"}),r=el("rect",{x:0,y:0,width:0,height:H});cp.appendChild(r);svg.appendChild(cp);g.setAttribute("clip-path","url(#rv)");
-      r.animate([{width:"0px"},{width:W+"px"}],{duration:1500,easing:"cubic-bezier(.65,0,.2,1)",fill:"forwards"});r.setAttribute("width",W);
-    }
-    drawn=true;svg.insertBefore(g,svg.firstChild);
+    svg.insertBefore(g,svg.firstChild);
   }
   draw();var rz;addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(draw,120)});
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){});
 
-  /* 스크롤에 따라 차오르는 경로 */
   var flows=[].slice.call(document.querySelectorAll("[data-flow]")),tick=false;
   function upd(){tick=false;var line=innerHeight*.62;flows.forEach(function(f){var b=f.getBoundingClientRect(),p=Math.max(0,Math.min(b.height,line-b.top));f.querySelector(".fill").style.height=p+"px";[].forEach.call(f.querySelectorAll(".stop"),function(s){s.classList.toggle("on",s.getBoundingClientRect().top+24<line)})})}
   addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener("resize",upd);upd();
 
-  /* 손익 계산기 */
-  var $=function(i){return document.getElementById(i)};
-  function won(v){return v.toLocaleString("ko-KR")+"만 원"}
-  function calc(){
-    var p=+$("price").value,r=+$("rate").value,c=+$("cac").value,x=+$("fixed").value,fee=p*r/100,net=fee-c;
-    $("o-price").textContent=won(p);$("o-rate").textContent=r+"%";$("o-cac").textContent=won(c);$("o-fixed").textContent=won(x);
-    var pct=function(v){return Math.max(0,Math.min(100,v/p*100))+"%"};
-    $("b-net").style.width=pct(Math.max(0,net));$("b-cac").style.width=pct(Math.min(c,fee));
-    if(net<=0){$("be").textContent="손해";$("be-unit").textContent="고객이 늘수록 손해입니다";$("be-sub").textContent="수수료 "+won(+fee.toFixed(1))+"보다 획득비 "+won(c)+"가 크거나 같습니다. 획득비를 줄이거나 조건을 바꿔야 합니다."}
-    else{var n=Math.ceil(x/net-1e-9);$("be").textContent=n;$("be-unit").textContent="명이 매달 와야 본전입니다";$("be-sub").textContent="환자 1명당 수수료 "+won(+fee.toFixed(1))+", 획득비를 빼면 "+won(+net.toFixed(1))+"가 남습니다."}
-  }
-  ["price","rate","cac","fixed"].forEach(function(i){$(i).addEventListener("input",calc)});calc();
-
-  /* 다섯 관문 */
-  var G=["변호사가 사업 구조, 광고 방식, 파트너 대가 지급 방식을 검토해 줌","피부과 2곳 이상이 수수료와 조건을 적어 함께하겠다고 답함","첫 나라의 고객을 데려올 경로에 실제 근거가 있음","실제 숫자로 다시 계산한 손익분기 환자 수를 달성할 수 있다고 둘 다 판단함","역할과 지분을 문서로 합의함"];
-  var KEY="patient-flow-gates-261102",S=[0,0,0,0,0];
-  try{var sv=JSON.parse(localStorage.getItem(KEY));if(Array.isArray(sv)&&sv.length==5)S=sv}catch(e){}
-  var board=$("board"),LBL=["미확인","통과","탈락"];
-  G.forEach(function(t,i){var row=document.createElement("div");row.className="gate";
-    row.innerHTML='<span class="n num">'+(i+1)+'</span><p>'+t+'</p><div class="seg" role="group" aria-label="관문 '+(i+1)+' 상태"></div>';
-    var seg=row.querySelector(".seg");LBL.forEach(function(l,v){var b=document.createElement("button");b.type="button";b.textContent=l;b.dataset.g=i;b.dataset.v=v;if(v==2)b.className="no";b.addEventListener("click",function(){S[i]=v;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}paint()});seg.appendChild(b)});board.appendChild(row)});
-  function paint(){
-    [].forEach.call(board.querySelectorAll("button"),function(b){b.setAttribute("aria-pressed",S[+b.dataset.g]==+b.dataset.v)});
-    var ok=S.filter(function(v){return v==1}).length,no=S.filter(function(v){return v==2}).length,V=$("verdict");
-    $("count").textContent=ok+"/5";V.classList.toggle("fail",no>0);
-    if(no>0){$("v-title").textContent="등록하지 않습니다";$("v-text").textContent="탈락한 관문을 해결할 수 있는지 보고, 안 되면 여기서 멈춥니다."}
-    else if(ok==5){$("v-title").textContent="등록을 진행합니다";$("v-text").textContent="다섯 관문이 모두 확인됐습니다. 아래 90일 일정으로 넘어갑니다."}
-    else{$("v-title").textContent="아직 결정하지 않습니다";$("v-text").textContent=(5-ok)+"개 관문이 남았습니다. 전부 확인되기 전에는 자본금을 넣지 않습니다."}
-  }
+  var KEY="patient-check-261102",boxes=[].slice.call(document.querySelectorAll("#groups input")),saved=[];
+  try{saved=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){}
+  function paint(){document.getElementById("count").textContent=boxes.filter(function(b){return b.checked}).length+"/"+boxes.length}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(boxes.map(function(b){return b.checked})))}catch(e){}paint()}
+  boxes.forEach(function(b,i){b.checked=!!saved[i];b.addEventListener("change",save)});
+  document.getElementById("reset").addEventListener("click",function(){boxes.forEach(function(b){b.checked=false});save()});
   paint();
 })();
 </script>
