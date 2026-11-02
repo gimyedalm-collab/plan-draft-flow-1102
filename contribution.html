@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>맡을 일 정리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Gothic+A1:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--cobalt:#1228c8;--deep:#0a1670;--sign:#ffd000;--paper:#f5f7ff;--ink:#08103f;--stop:#ff5a3c;--soft:#c9d2ff;--line:rgba(255,255,255,.28)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:#fff;font:400 17px/1.65 'Gothic A1','Malgun Gothic',sans-serif;word-break:keep-all;overflow-wrap:break-word}
+h1,h2,h3,p,ol,ul{margin:0;padding:0}li{list-style:none}
+:focus-visible{outline:3px solid var(--stop);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+section{padding:112px 0}
+h2{font-size:clamp(40px,6.4vw,92px);line-height:1.08;font-weight:900;letter-spacing:-.03em;max-width:15em}
+.intro{font-size:clamp(18px,1.7vw,22px);max-width:36em;margin-top:22px}
+.num{font-family:'Barlow Condensed','Gothic A1',sans-serif;font-weight:700}
+
+.hero{background:var(--cobalt);padding:40px 0 64px;min-height:100vh;display:flex;flex-direction:column}
+.hero .wrap{width:100%}
+.draft{font-size:15px;color:var(--soft)}
+h1{font-size:clamp(50px,7.4vw,112px);line-height:1;font-weight:900;letter-spacing:-.045em;margin-top:22px}
+.lede{font-size:clamp(18px,1.8vw,24px);max-width:32em;margin-top:24px}
+#sankey{width:100%;display:block;margin-top:36px}
+#sankey{fill:#fff}
+#sankey text{font-family:'Gothic A1','Malgun Gothic',sans-serif}
+.hero .note{font-size:14px;color:var(--soft);margin-top:12px;max-width:50em}
+
+.j{background:var(--deep)}
+.flow{position:relative;margin-top:72px;padding-left:96px}
+.rail,.fill{position:absolute;left:30px;top:0;width:10px;border-radius:5px}
+.rail{bottom:0;background:rgba(255,255,255,.14)}
+.fill{background:var(--sign);height:0}
+.stop{position:relative;padding:0 0 68px}
+.stop:last-child{padding-bottom:0}
+.stop .dot{position:absolute;left:-96px;top:0;width:70px;height:70px;border-radius:50%;background:var(--deep);border:5px solid rgba(255,255,255,.3);display:grid;place-items:center;font-size:34px;transition:background .25s,color .25s,border-color .25s;color:#fff}
+.stop.on .dot{background:var(--sign);border-color:var(--sign);color:var(--ink)}
+.stop h3{font-size:clamp(30px,4.2vw,58px);line-height:1.12;font-weight:900;letter-spacing:-.025em;padding-top:8px}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:18px;max-width:900px}
+.who b{display:block;font-size:15px;color:var(--sign);margin-bottom:2px}
+.who .guard b{color:#ff9b87}
+.clinic .dot{border-radius:14px;background:#fff;color:var(--ink);border-color:#fff}
+.stop.clinic.on .dot{background:#fff;border-color:#fff}
+.clinic h3{color:#fff}
+.tag{display:inline-block;background:#fff;color:var(--ink);font-weight:700;font-size:15px;padding:2px 12px;border-radius:4px;margin-top:14px}
+
+.money{background:var(--paper);color:var(--ink)}
+.calc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;margin-top:64px;align-items:start}
+.slider{margin-bottom:30px}
+.slider label{display:flex;justify-content:space-between;gap:12px;font-weight:700;align-items:baseline}
+.slider output{font-size:34px;line-height:1}
+input[type=range]{width:100%;height:36px;accent-color:var(--cobalt);margin-top:4px;cursor:pointer}
+.slider small{display:block;font-size:14px;color:#3f4a86}
+.be{font-size:clamp(120px,19vw,270px);line-height:.86;color:var(--cobalt);letter-spacing:-.01em}
+.be-unit{font-size:clamp(22px,2.4vw,32px);font-weight:900;margin-top:10px}
+.be-sub{margin-top:10px;font-size:18px}
+.bar{display:flex;height:64px;margin-top:36px;background:#d7dcf5;border-radius:4px;overflow:hidden}
+.bar i{display:block;background:var(--cobalt)}
+.bar i+i{background:#7c8aea}
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:10px;font-size:15px}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;margin-right:6px;background:var(--c)}
+.assume{font-size:14px;color:#3f4a86;margin-top:24px;max-width:46em}
+
+.w{background:var(--cobalt)}
+.w .stop .dot{background:var(--cobalt)}
+.w .stop.on .dot{background:var(--sign)}
+.w .who{grid-template-columns:2fr 1fr}
+
+.gates{background:var(--sign);color:var(--ink)}
+.board{margin-top:56px;border-top:6px solid var(--ink)}
+.gate{display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:24px;align-items:center;padding:20px 0;border-bottom:2px solid var(--ink)}
+.gate .n{font-size:64px;line-height:1}
+.gate p{font-size:clamp(18px,2vw,24px);font-weight:700;line-height:1.35}
+.seg{display:flex;border:2px solid var(--ink);border-radius:6px;overflow:hidden}
+.seg button{all:unset;padding:10px 15px;font-size:15px;font-weight:700;cursor:pointer;min-height:24px;text-align:center}
+.seg button+button{border-left:2px solid var(--ink)}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.seg button.no[aria-pressed=true]{background:#b3200a}
+.seg button:focus-visible{outline:3px solid #b3200a;outline-offset:-4px}
+.verdict{margin-top:40px;padding:28px 32px;background:var(--ink);color:#fff;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center}
+.verdict .count{font-size:clamp(68px,9vw,120px);line-height:1;color:var(--sign)}
+.verdict strong{display:block;font-size:clamp(24px,3vw,40px);line-height:1.2;font-weight:900}
+.verdict.fail .count{color:var(--stop)}
+.gates .small{font-size:15px;margin-top:14px}
+.barrier{background:var(--stop);color:var(--ink);padding:44px 0}
+.barrier p{font-size:clamp(28px,4.6vw,64px);font-weight:900;line-height:1.14;letter-spacing:-.025em;max-width:18em}
+.barrier small{display:block;font-size:17px;margin-top:12px;font-weight:700}
+
+.a{background:var(--deep)}
+.decide{background:var(--paper);color:var(--ink)}
+.dlist{margin-top:52px;border-top:6px solid var(--ink)}
+.dlist li{display:grid;grid-template-columns:90px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:2px solid var(--ink);align-items:baseline}
+.dlist .num{font-size:56px;line-height:1;color:var(--cobalt)}
+.dlist p{font-size:clamp(20px,2.4vw,30px);font-weight:700;line-height:1.3}
+.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:72px}
+.roles h3{font-size:26px;font-weight:900;border-top:6px solid var(--cobalt);padding-top:12px}
+.markets{margin-top:72px}
+.market{display:grid;grid-template-columns:150px 200px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.market h3{font-size:24px;font-weight:900}
+.mk{background:var(--cobalt)}
+footer{background:var(--ink);padding:56px 0;font-size:15px;color:var(--soft)}
+footer h2{font-size:22px;letter-spacing:0;color:#fff}
+footer ul{margin:12px 0}footer li{margin:5px 0}
+footer a{color:#fff}
+
+@media(max-width:820px){
+ .wrap{padding:0 16px}section{padding:72px 0}
+ .hero{padding:24px 0 40px;min-height:0}
+ .flow{padding-left:64px;margin-top:48px}
+ .rail,.fill{left:20px;width:8px}
+ .stop{padding-bottom:52px}
+ .stop .dot{left:-64px;width:48px;height:48px;font-size:24px;border-width:4px}
+ .stop h3{padding-top:2px}
+ .who,.w .who{grid-template-columns:1fr;gap:12px}
+ .calc{grid-template-columns:1fr;gap:40px}
+ .gate{grid-template-columns:52px minmax(0,1fr);gap:10px 12px}
+ .gate .n{font-size:44px}.seg{grid-column:1/-1}.seg button{flex:1}
+ .verdict{grid-template-columns:1fr;gap:10px;padding:22px 18px}
+ .dlist li{grid-template-columns:44px minmax(0,1fr);gap:12px}.dlist .num{font-size:40px}
+ .roles{grid-template-columns:1fr;gap:28px}
+ .market{grid-template-columns:1fr;gap:4px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+@media print{.rail,.fill{display:none}.stop .dot{background:#fff;color:#000}section{padding:32px 0;break-inside:avoid}}
+
+.hero.c{min-height:0;padding-bottom:88px}
+.hero.c h1{font-size:clamp(50px,8.4vw,128px)}
+.big{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;margin-top:64px;align-items:start}
+.formats li{padding:18px 0;border-bottom:1px solid var(--line)}
+.formats h3{font-size:clamp(22px,2.4vw,30px);font-weight:900;line-height:1.25}
+.formats p{margin-top:4px}
+.make li{padding:10px 0 10px 28px;position:relative;font-size:clamp(18px,1.7vw,21px)}
+.make li::before{content:"";position:absolute;left:0;top:21px;width:14px;height:6px;background:var(--sign)}
+.warnline{margin-top:28px;padding:18px 20px;background:var(--stop);color:var(--ink);font-weight:700}
+.rows{margin-top:56px;border-top:6px solid var(--ink)}
+.row{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,5fr) minmax(0,4fr);gap:28px;padding:24px 0;border-bottom:2px solid var(--ink)}
+.row h3{font-size:clamp(23px,2.5vw,32px);line-height:1.2;font-weight:900}
+.row b{display:block;font-size:15px;color:#2230a8}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:56px}
+.split h3{font-size:clamp(24px,2.8vw,36px);font-weight:900;padding-top:12px;border-top:6px solid var(--ink)}
+.split li{padding:9px 0;font-size:18px;font-weight:700;border-bottom:2px solid rgba(8,16,63,.3)}
+.back a{color:#fff;font-weight:700}
+@media(max-width:820px){.big,.split{grid-template-columns:1fr;gap:32px}.row{grid-template-columns:1fr;gap:10px}}
+</style>
+</head>
+<body>
+<header class="hero c">
+  <div class="wrap">
+    <p class="draft back"><a href="index.html">사업 플로우로 돌아가기</a></p>
+    <h1>콘텐츠부터 운영까지<br>제가 맡습니다</h1>
+    <p class="lede">고객이 알게 되는 순간부터 상담, 병원 계약, 운영 시스템까지 제가 직접 만듭니다. 검토용 초안, 2026년 11월 2일</p>
+  </div>
+</header>
+
+<section class="j">
+  <div class="wrap">
+    <h2>콘텐츠로 첫 고객을 만듭니다</h2>
+    <p class="intro">전후 사진과 체험담 없이도 믿고 물어볼 수 있게 만드는 정보형 콘텐츠를 나라별로 만듭니다.</p>
+    <div class="big">
+      <div>
+        <ul class="make">
+          <li>레퍼런스 분석과 숏폼 기획</li>
+          <li>릴스, 틱톡, 쇼츠 대본과 자막</li>
+          <li>편집, 모션, AI 영상 제작</li>
+          <li>나라별 언어와 플랫폼에 맞춘 변환</li>
+          <li>첫 3초와 영상 길이 실측 분석</li>
+          <li>광고 소재 제작과 성과 비교</li>
+        </ul>
+        <p class="warnline">모든 콘텐츠는 의료광고 규정을 변호사와 확인한 뒤 게시합니다.</p>
+      </div>
+      <ul class="formats">
+        <li><h3>서울 피부과, 처음이면 이것부터</h3><p>예약, 언어, 결제, 소요 시간처럼 처음 방문할 때 궁금한 내용</p></li>
+        <li><h3>시술 이름과 차이 쉽게 풀기</h3><p>병원 감수를 받은 일반 정보. 효과를 약속하지 않음</p></li>
+        <li><h3>예약부터 귀국까지 하루 동선</h3><p>병원 방문과 여행 일정을 맞추는 방법</p></li>
+        <li><h3>병원 고를 때 확인할 것</h3><p>유치 등록 병원 확인법, 통역, 사후 연락, 비용 안내</p></li>
+        <li><h3>나라별 자주 묻는 질문</h3><p>실제 상담에서 나온 질문을 다음 콘텐츠로 연결</p></li>
+      </ul>
+    </div>
+    <p class="intro">위 주제는 시험할 후보입니다. 실제로 반응이 있는지는 나라를 정한 뒤 확인합니다.</p>
+  </div>
+</section>
+
+<section class="decide">
+  <div class="wrap">
+    <h2>콘텐츠 말고 맡을 일</h2>
+    <div class="rows">
+      <div class="row"><h3>사업 계획과 수익 계산</h3><p><b>결과물</b>경쟁 조사표, 수익 계산표, 진행 또는 중단 판단 자료</p><p><b>언제</b>4주 검증 기간</p></div>
+      <div class="row"><h3>병원 영업과 계약 실무</h3><p><b>결과물</b>병원 제안서, 인터뷰 질문지, 조건 비교표, 계약 조건 정리</p><p><b>언제</b>2주차부터. 최종 계약은 변호사 검토 후</p></div>
+      <div class="row"><h3>광고 운영</h3><p><b>결과물</b>메타 광고 세팅, 소재 시험, 성과 분석, 집행 전 점검표</p><p><b>언제</b>등록 후. 예산은 대표 승인 후 집행</p></div>
+      <div class="row"><h3>홈페이지와 상담 창구</h3><p><b>결과물</b>다국어 소개 페이지, 문의 양식, 예약 안내 페이지</p><p><b>언제</b>나라 확정 후 제작, 등록 후 공개</p></div>
+      <div class="row"><h3>상담·운영 시스템</h3><p><b>결과물</b>문의, 예약, 정산을 한곳에서 보는 업무 시스템</p><p><b>언제</b>첫 고객 받기 전</p></div>
+      <div class="row"><h3>운영 절차와 대외 조율</h3><p><b>결과물</b>상담 대본, 사고 대응 절차, 파트너별 역할과 일정 정리</p><p><b>언제</b>첫 고객 받기 전. 법률 내용은 변호사 확인</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gates">
+  <div class="wrap">
+    <h2>제가 못 하는 일은 분명히 나눕니다</h2>
+    <div class="split">
+      <div><h3>제가 하지 않는 일</h3><ul>
+        <li>진단과 시술 추천 같은 의료 판단</li>
+        <li>법률과 세무 최종 판단</li>
+        <li>외국어 상담 직접 응대</li>
+      </ul></div>
+      <div><h3>함께 채울 것</h3><ul>
+        <li>자본금과 운영비</li>
+        <li>병원 인맥과 현지 파트너</li>
+        <li>나라별 상담·통역 인력</li>
+        <li>크리에이터 참여 여부와 동의</li>
+        <li>변호사와 세무사</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="back"><a href="index.html">사업 플로우로 돌아가기</a></p>
+    <p style="margin-top:12px">이 페이지는 역할 제안 초안입니다. 성과를 보장하지 않으며, 일정과 범위는 합의 후 확정합니다.</p>
+  </div>
+</footer>
+</body>
+</html>
